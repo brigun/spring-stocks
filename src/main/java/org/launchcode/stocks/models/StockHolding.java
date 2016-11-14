@@ -60,7 +60,7 @@ public class StockHolding extends AbstractEntity {
     }
 
     protected void setSymbol(String symbol) {
-        this.symbol = symbol;
+        this.symbol = symbol.toUpperCase();
     }
 
     @NotNull
@@ -133,6 +133,7 @@ public class StockHolding extends AbstractEntity {
     public static StockHolding buyShares(User user, String symbol, int numberOfShares) throws StockLookupException {
 
         // TODO - make sure symbol matches case convention
+    	symbol = symbol.toUpperCase();
 
         // Get existing holding
         Map<String, StockHolding> userPortfolio = user.getPortfolio();
@@ -165,6 +166,7 @@ public class StockHolding extends AbstractEntity {
     public static StockHolding sellShares(User user, String symbol, int numberOfShares) throws StockLookupException {
 
         // TODO - make sure symbol matches case convention
+    	symbol = symbol.toUpperCase();
 
         // Get existing holding
         Map<String, StockHolding> userPortfolio = user.getPortfolio();
